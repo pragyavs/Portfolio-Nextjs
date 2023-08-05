@@ -1,8 +1,8 @@
 import Navbar from '@/components/Navbar';
 import Head from 'next/head'
 import ArchiveCard from './ArchiveCard';
-import { blogsData } from '../config';
 import Footer from '@/components/Footer';
+import { blogsData } from '@/config/config';
 
 export default function Blog() {
 

@@ -22,4 +22,6 @@ const blogsData: BlogsData[] = [
 {
     title:"Prove Them Wrong",des:"There is a saying we hear a lot, but never really grasp the meaning behind it. A perfect meaning is not what others say, but what we decide",link:"https://pragyavs.blogspot.com/2022/01/prove-them-wrong.html"
 }];
+
+
 export { blogsData }
