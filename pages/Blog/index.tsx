@@ -3,15 +3,36 @@ import Head from 'next/head'
 import ArchiveCard from './ArchiveCard';
 import Footer from '@/components/Footer';
 import { blogsData } from '@/config/config';
+import { getPageCountData, updatePageCountData } from '@/config/utils';
+import { useEffect } from 'react';
 
 export default function Blog() {
 
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getPageCountData();
+      return data;
+    }
+
+    fetchData().then((res) => {
+      const updatedRes = { ...res, blog: res.blog + 1 }
+      updatePageCountData(updatedRes)
+    })
+  }, [])
 
   return (
     <>
       <Head>
-        <title>Pragya Singh</title>
+        <title>Pragya Singh </title>
         <link rel="icon" href="/favicons.png" />
+        <meta name="description" content="Pragya Singh Blogger write content about vibes, How to add Lottiefie, Prove them Wrong "></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta property="og:title" content="Pragya Singh" key="ogtitle" />
+        <meta property="og:description" content="A Backend Developer and a youtuber" key="ogdesc" />
+        <meta name="twitter:card" content="Pragya Singh A Backend Dev"></meta>
+        <meta name="whatsapp:card" content="Pragya Singh A Backend Dev"></meta>
+        <meta name="instagram:card" content="Pragya Singh A Backend Dev"></meta>
       </Head>
       <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight
       overflow-x-hidden overflow-y-scroll">

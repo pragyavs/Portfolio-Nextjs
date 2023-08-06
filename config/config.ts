@@ -24,4 +24,5 @@ const blogsData: BlogsData[] = [
 }];
 
 
+
 export { blogsData }

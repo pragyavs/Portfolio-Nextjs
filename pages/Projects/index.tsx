@@ -4,13 +4,36 @@ import SectionTitle from '../About/SecctionTitle';
 import { TbBrandGithub } from "react-icons/tb";
 import { RxOpenInNewWindow } from "react-icons/rx"
 import Footer from '@/components/Footer';
+import { getPageCountData, updatePageCountData } from '@/config/utils';
+import { useEffect } from 'react';
 
 export default function Projects() {
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await getPageCountData();
+      return data;
+    }
+
+    fetchData().then((res) => {
+      const updatedRes = { ...res, projects: res.projects + 1 }
+      updatePageCountData(updatedRes)
+    })
+  }, [])
+
   return (
     <>
       <Head>
         <title>Pragya Singh</title>
         <link rel="icon" href="/favicons.png" />
+        <meta name="description" content="Pragya Singh A passionate and experienced backend developer with expertise in Node.js and AWS. A youtuber Neon Narrative "></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+        <meta property="og:title" content="Pragya Singh" key="ogtitle" />
+        <meta property="og:description" content="A Backend Developer and a youtuber" key="ogdesc" />
+        <meta name="twitter:card" content="Pragya Singh A Backend Dev"></meta>
+        <meta name="whatsapp:card" content="Pragya Singh A Backend Dev"></meta>
+        <meta name="instagram:card" content="Pragya Singh A Backend Dev"></meta>
       </Head>
       <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight
       overflow-x-hidden overflow-y-scroll">
@@ -29,7 +52,7 @@ export default function Projects() {
                 <li>JAVACRIPT</li>
               </ul>
               <div className="text-2xl flex gap-4"><a className="hover:text-textGreen duration-300" href="https://github.com/pragyavs" target="_blank"><TbBrandGithub /></a>
-                <a className="hover:text-textGreen duration-300" href="https://pragyasingh.in/calci" target="_blank"><RxOpenInNewWindow /></a>
+                <a className="hover:text-textGreen duration-300" href="https://pragyavs.github.io/calci.html" target="_blank"><RxOpenInNewWindow /></a>
               </div>
             </div>
             <div className="flex flex-col gap-6 p-5">
@@ -41,7 +64,7 @@ export default function Projects() {
                 <li>JAVACRIPT</li>
               </ul>
               <div className="text-2xl flex gap-4"><a className="hover:text-textGreen duration-300" href="https://github.com/pragyavs" target="_blank"><TbBrandGithub /></a>
-                <a className="hover:text-textGreen duration-300" href="https://pragyasingh.in/todo/index.html" target="_blank"><RxOpenInNewWindow /></a>
+                <a className="hover:text-textGreen duration-300" href="https://pragyavs.github.io/todo/" target="_blank"><RxOpenInNewWindow /></a>
               </div>
             </div>
             <div className='w-full xl:w-1/2 flex flex-col gap-6 lgl:justify-between items-end text-right xl:ml-16 z-10'>
@@ -66,7 +89,7 @@ export default function Projects() {
                 <li>Flask</li>
               </ul>
               <div className="text-2xl flex gap-4"><a className="hover:text-textGreen duration-300" href="https://github.com/pragyavs" target="_blank"><TbBrandGithub /></a>
-                <a className="hover:text-textGreen duration-300" href="https://vehiclepredictions.herokuapp.com/" target="_blank"><RxOpenInNewWindow /></a>
+                {/* <a className="hover:text-textGreen duration-300" href="https://vehiclepredictions.herokuapp.com/" target="_blank"><RxOpenInNewWindow /></a> */}
               </div>
             </div>
             <div className="items-center justify-between"> <Footer /></div>

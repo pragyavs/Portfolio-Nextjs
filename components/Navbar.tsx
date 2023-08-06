@@ -7,6 +7,7 @@ import { FiFacebook } from "react-icons/fi";
 import { FiLinkedin } from "react-icons/fi";
 import { FiTwitter } from "react-icons/fi";
 import { FaYoutube } from "react-icons/fa";
+import { onResumeButtonClick } from "@/config/utils";
 
 
 const Navbar = () => {
@@ -72,6 +73,7 @@ const Navbar = () => {
                             initial={{ y: -10, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 0.1, delay: 0.4 }}
+                            onClick={() => onResumeButtonClick()}
                             className="px-4 py-2 rounded-md text-textGreen text-[35px] border border-textGreen hover:bg-hoverColor duration-300">Resume</motion.button></a>
                 </div>
                 <div></div>
@@ -162,6 +164,7 @@ const Navbar = () => {
                                         <motion.button
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
+                                            onClick={() => onResumeButtonClick()}
                                             transition={{
                                                 duration: 0.2,
                                                 delay: 0.6,
@@ -187,7 +190,7 @@ const Navbar = () => {
                                             transition={{
                                                 delay: 1,
                                                 ease: "easeIn"
-                                            }} href="https://www.youtube.com/channel/UCTIxAOH9DQoD8Nkb01Ify3Q" target="_blank">
+                                            }} rel="canonical" href="https://www.youtube.com/channel/UCTIxAOH9DQoD8Nkb01Ify3Q" target="_blank">
                                             <span className="w-10 h-10 text-xl bg-hoverColor border-[1px] border-zinc-700  hover:border-textGreen text-zinc-200 rounded-full inline-flex items-center justify-center hover:text-textGreen cursor-pointer hover:-translate-y-2 transition-all duration-300 p-2">
                                                 <FaYoutube />
                                             </span>

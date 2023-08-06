@@ -1,13 +1,37 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import { getPageCountData, updatePageCountData } from "@/config/utils";
 import Head from "next/head";
-import React from "react";
+import React, { useEffect } from "react";
+
 const Contact = () => {
+
+    useEffect(() => {
+        async function fetchData() {
+            const data = await getPageCountData();
+            return data;
+        }
+
+        fetchData().then((res) => {
+            const updatedRes = { ...res, contact: res.contact + 1 }
+            updatePageCountData(updatedRes)
+        })
+    }, [])
+
     return (
         <>
             <Head>
                 <title>Pragya Singh</title>
                 <link rel="icon" href="/favicons.png" />
+                <meta name="description" content="Pragya Singh Conatct A youtuber Neon Narrative "></meta>
+                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+                <meta property="og:title" content="Pragya Singh" key="ogtitle" />
+                <meta property="og:description" content="A Backend Developer and a youtuber" key="ogdesc" />
+                <meta name="twitter:card" content="Pragya Singh A Backend Dev"></meta>
+                <meta name="whatsapp:card" content="Pragya Singh A Backend Dev"></meta>
+                <meta name="instagram:card" content="Pragya Singh A Backend Dev"></meta>
+
             </Head>
             <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight
           overflow-x-hidden overflow-y-scroll">
