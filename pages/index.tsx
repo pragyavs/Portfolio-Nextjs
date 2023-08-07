@@ -29,10 +29,11 @@ export default function Home() {
         <meta name="description" content="Pragya Singh A passionate and experienced backend developer with expertise in Node.js and AWS. A youtuber Neon Narrative "></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
         <meta property="og:title" content="Pragya Singh" key="ogtitle" />
-        <meta property="og:description" content="A Backend Developer and a youtuber" key="ogdesc" />
+        <meta property="og:description" content="A Backend Developer and A Youtuber" key="ogdesc" />
         <meta name="twitter:card" content="Pragya Singh A Backend Dev"></meta>
         <meta name="whatsapp:card" content="Pragya Singh A Backend Dev"></meta>
         <meta name="instagram:card" content="Pragya Singh A Backend Dev"></meta>
+        <meta name="linkedin:card" content="Pragya Singh A Backend Dev"></meta>
       </Head>
       <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
       <main className="w-full h-screen font-bodyFont bg-bodyColor text-textLight
