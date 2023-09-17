@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head'
 import Animation from './Animation';
 import { useState } from 'react';
 import { weatherApiApp } from '@/config/config';
@@ -46,54 +47,66 @@ export default function Weather() {
     }
 
     return (
-
-        <div className="w-full h-screen font-bodyFont bg-bodyColor text-white
+        <>
+            <Head>
+                <title>Weather Forcast</title>
+                <link rel="icon" href="/favicons.png" />
+                <meta name="description" content="Weather Forcast site "></meta>
+                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+                <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+                <meta property="og:title" content="Pragya Singh" key="ogtitle" />
+                <meta property="og:description" content="A Backend Developer and a youtuber" key="ogdesc" />
+                <meta name="twitter:card" content="Weather Forecast"></meta>
+                <meta name="whatsapp:card" content="Weather Forecast"></meta>
+                <meta name="instagram:card" content="Weather Forecast"></meta>
+            </Head>
+            <div className="w-full h-screen font-bodyFont bg-bodyColor text-white
         overflow-x-hidden overflow-y-scroll">
-            <section className="max-w-containerSmall mx-auto py-10 lgl:py-33 flex flex-col gap-8 items-center ">
-                <h1 className="font-titleFont text-5xl font-semibold flex items-center justify-between p-5">Weather Forecast</h1>
-                <div>
-                    <Animation />
-                </div>
-                <div className="flex sm:flex-col">
-                    <input
-                        type="text"
-                        placeholder='City You want to search'
-                        className='px-4 py-2 rounded-md text-textGreen text-[35px] border border-textGreen hover:bg-hoverColor duration-300 p-5'
-                        onChange={e => setCity(e.target.value)}
-                    />
+                <section className="max-w-containerSmall mx-auto py-10 lgl:py-33 flex flex-col gap-8 items-center ">
+                    <h1 className="font-titleFont text-5xl font-semibold flex items-center justify-between p-5">Weather Forecast</h1>
+                    <div>
+                        <Animation />
+                    </div>
+                    <div className="flex sm:flex-col">
+                        <input
+                            type="text"
+                            placeholder='City You want to search'
+                            className='px-2 py-1 rounded-md text-textGreen text-[25px] border border-textGreen hover:bg-hoverColor duration-300 p-2'
+                            onChange={e => setCity(e.target.value)}
+                        />
+                        <br></br>
+                        <button
+                            onClick={getWeather}
+                            className="px-2 py-1 rounded-md text-textGreen text-[25px]  flex border border-textGreen hover:bg-hoverColor duration-300 p-2">
+                            Search
+                        </button>
+                    </div>
                     <br></br>
-                    <button
-                        onClick={getWeather}
-                        className="px-2 py-1 rounded-md text-textGreen text-[35px]  flex border border-textGreen hover:bg-hoverColor duration-300 p-2">
-                        Search
-                    </button>
-                </div>
-                <br></br>
 
 
-                <div>
-                    <h2 className='font-titleFont text-3xl font-semibold flex items-center justify-between '>"Embrace the elements and plan your day with nature's script in mind."</h2>
-                </div>
-                {temp && lat && lon && sunrise && sunset && description && (
-                    <div className='bg-[#112240] text-sm md:text-base p-8 md:p-9 rounded-md'>
+                    <div>
+                        <h2 className='font-titleFont text-3xl font-semibold flex items-center justify-between p-5'>"Embrace the elements and plan your day with nature's script in mind."</h2>
+                    </div>
+                    {temp && lat && lon && sunrise && sunset && description && (
+                        <div className='bg-[#112240] text-sm md:text-base p-8 md:p-9 rounded-md'>
 
-                        <div className="w-full h-50 rounded-lg text-3xl bg-black p-9 text-center flex-col gap-6 hover:-translate-y-2 transition-transform duration-300 display: flex align-items: flex-start">
-                            <p>Temperature : {temp} ° C</p>
-                            <p>Sunrise : {new Date(sunrise * 1000).toLocaleTimeString('en-IN')}</p>
-                            <p>Sunset : {new Date(sunset * 1000).toLocaleTimeString('en-IN')}</p>
-                            <p>Latitude : {lat}</p>
-                            <p>Longitude : {lon}</p>
-                            <p>Description : {description}</p>
-                        </div>
-
-
-                    </div>)}
-
-            </section>
+                            <div className="w-full h-50 rounded-lg text-3xl bg-black p-9 text-center flex-col gap-6 hover:-translate-y-2 transition-transform duration-300 display: flex align-items: flex-start">
+                                <p>Temperature : {temp} ° C</p>
+                                <p>Sunrise : {new Date(sunrise * 1000).toLocaleTimeString('en-IN')}</p>
+                                <p>Sunset : {new Date(sunset * 1000).toLocaleTimeString('en-IN')}</p>
+                                <p>Latitude : {lat}</p>
+                                <p>Longitude : {lon}</p>
+                                <p>Description : {description}</p>
+                            </div>
 
 
-        </div>
+                        </div>)}
 
+                </section>
+
+
+            </div>
+        </>
     );
 
 };
