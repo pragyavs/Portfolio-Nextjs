@@ -92,11 +92,21 @@ export default function Projects() {
                 {/* <a className="hover:text-textGreen duration-300" href="https://vehiclepredictions.herokuapp.com/" target="_blank"><RxOpenInNewWindow /></a> */}
               </div>
             </div>
+            <div className="w-full xl:w-1/2 flex flex-col gap-6 lgl:justify-between items-end text-right xl:ml-16 z-10">
+              <h3 className='text-2xl font-bold'>Weather App</h3>
+              <p className='bg-[#112240] text-sm md:text-base p-5 md:p-6 rounded-md'>A weather application designed to provide precise temperature forecasts coinciding with sunrise and sunset events, enhancing user comprehension of meteorological conditions during these pivotal moments.</p>
+              <ul className="text-xs md:text-sm font-titleFont tracking-wide flex gap-2 md:gap-5 text-textDark">
+                <li>React JS</li>
+              </ul>
+              <div className="text-2xl flex gap-4"><a className="hover:text-textGreen duration-300" href="https://github.com/pragyavs" target="_blank"><TbBrandGithub /></a>
+                <a className="hover:text-textGreen duration-300" href="https://pragyasingh.in/Weather/" target="_blank"><RxOpenInNewWindow /></a>
+              </div>
+            </div>
             <div className="items-center justify-between"> <Footer /></div>
           </div>
 
         </section>
-      </main>
+      </main >
     </>
   );
 }

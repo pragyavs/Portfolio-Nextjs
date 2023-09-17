@@ -24,5 +24,7 @@ const blogsData: BlogsData[] = [
 }];
 
 
+const weatherApiApp = '62d0cdb197f964aa8ef3387571864159';
 
-export { blogsData }
+
+export { blogsData, weatherApiApp }
