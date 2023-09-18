@@ -1,7 +1,8 @@
 import axios from 'axios';
 import Head from 'next/head'
 import Animation from './Animation';
-import { useState } from 'react';
+import MyImage from './image';
+import React, { useState } from 'react';
 import { weatherApiApp } from '@/config/config';
 
 
@@ -11,9 +12,11 @@ export default function Weather() {
     const [isDate, setDate] = useState('');
     const [sunrise, Sunrises] = useState(null);
     const [sunset, Sunsets] = useState(null);
+    const [message, Data] = useState(null);
     const [lat, setLat] = useState([]);
     const [lon, setLong] = useState([]);
     const [description, descript] = useState([]);
+    const [error, setError] = useState('');
     const getWeather = async () => {
         try {
             const apiKey = weatherApiApp;
@@ -27,6 +30,7 @@ export default function Weather() {
             const Date = response.data.main.isDate;
             const Sunrise = response.data.sys.sunrise;
             const Sunset = response.data.sys.sunset;
+            const d = response.data.message;
             const desc = response.data.weather[0].description;
             console.log("Response Data: ", response.data)
             console.log("Desc: ", description)
@@ -34,12 +38,15 @@ export default function Weather() {
             setTemp(temperature);
             descript(desc);
             setDate(Date);
+            Data(message)
             setLat(latitude);
             setLong(longitude);
             Sunrises(Sunrise);
             Sunsets(Sunset);
+
         } catch (error) {
             console.error("Error:", error);
+            setError('The entered city is not correct.');
         }
     };
     function moment() {
@@ -50,7 +57,7 @@ export default function Weather() {
         <>
             <Head>
                 <title>Weather Forcast</title>
-                <link rel="icon" href="/favicons.png" />
+                <link rel="icon" href="/storm.png" />
                 <meta name="description" content="Weather Forcast site "></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
@@ -87,10 +94,13 @@ export default function Weather() {
                     <div>
                         <h2 className='font-titleFont text-3xl font-semibold flex items-center justify-between p-5'>"Embrace the elements and plan your day with nature's script in mind."</h2>
                     </div>
-                    {temp && lat && lon && sunrise && sunset && description && (
+
+                    {temp && lat && lon && sunrise && sunset && description ? (
                         <div className='bg-[#112240] text-sm md:text-base p-8 md:p-9 rounded-md'>
+                            <MyImage />
 
                             <div className="w-full h-50 rounded-lg text-3xl bg-black p-9 text-center flex-col gap-6 hover:-translate-y-2 transition-transform duration-300 display: flex align-items: flex-start">
+                                <p>Message:{message}</p>
                                 <p>Temperature : {temp} ° C</p>
                                 <p>Sunrise : {new Date(sunrise * 1000).toLocaleTimeString('en-IN')}</p>
                                 <p>Sunset : {new Date(sunset * 1000).toLocaleTimeString('en-IN')}</p>
@@ -98,9 +108,18 @@ export default function Weather() {
                                 <p>Longitude : {lon}</p>
                                 <p>Description : {description}</p>
                             </div>
+                        </div>
+                    ) : (
+                        <div className='bg-[#112240] text-sm md:text-base p-8 md:p-9 rounded-md'>
+                            <div className="w-full h-50 rounded-lg text-3xl bg-black p-9 text-center flex-col gap-6 hover:-translate-y-2 transition-transform duration-300 display: flex align-items: flex-start">
+                                {error ? (
+                                    <p>{error}</p>
+                                ) :
+                                    <p>Welcome</p>}
+                            </div>
+                        </div>
 
-
-                        </div>)}
+                    )}
 
                 </section>
 
