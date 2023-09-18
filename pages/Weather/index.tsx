@@ -56,7 +56,7 @@ export default function Weather() {
     return (
         <>
             <Head>
-                <title>Weather Forcast</title>
+                <title>Weather Forecast</title>
                 <link rel="icon" href="/storm.png" />
                 <meta name="description" content="Weather Forcast site "></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1"></meta>
